@@ -1,0 +1,107 @@
+--[[
+	Hello this script was made by Ramon Goenen on YouTube.
+This script can: punish and "ban"
+
+--]]
+
+local ScreenGui = Instance.new("ScreenGui")
+local Execute = Instance.new("Frame")
+local Punish = Instance.new("TextButton")
+local SilentCMD = Instance.new("TextButton")
+local Box = Instance.new("TextBox")
+local X = Instance.new("TextButton")
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+
+Execute.Name = "Executor"
+Execute.Parent = ScreenGui
+Execute.BackgroundColor3 = Color3.new(0.333333, 0.666667, 0.498039)
+Execute.BorderSizePixel = 4
+Execute.Position = UDim2.new(0.117575757, 0, 0.152334154, 0)
+Execute.Size = UDim2.new(0, 334, 0, 138)
+Execute.Active = true
+Execute.Draggable = true
+
+Punish.Name = "Execute"
+Punish.Parent = Main
+Punish.BackgroundColor3 = Color3.new(0.168627, 0.513726, 0.25098)
+Punish.BorderColor3 = Color3.new(0.168627, 0.513726, 0.25098)
+Punish.Position = UDim2.new(0.0209580846, 0, 0.594202876, 0)
+Punish.Size = UDim2.new(0, 162, 0, 50)
+Punish.Font = Enum.Font.GothamBlack
+Punish.Text = "Execute Script"
+Punish.TextColor3 = Color3.new(1, 1, 1)
+Punish.TextSize = 14
+Punish.TextStrokeColor3 = Color3.new(1, 1, 1)
+
+SilentCMD.Name = "Test"
+SilentCMD.Parent = Main
+SilentCMD.BackgroundColor3 = Color3.new(0.168627, 0.513726, 0.25098)
+SilentCMD.BorderColor3 = Color3.new(0.168627, 0.513726, 0.25098)
+SilentCMD.Position = UDim2.new(0.514970064, 0, 0.594202876, 0)
+SilentCMD.Size = UDim2.new(0, 152, 0, 50)
+SilentCMD.Font = Enum.Font.Gotham
+SilentCMD.Text = "Test"
+SilentCMD.TextColor3 = Color3.new(1, 1, 1)
+SilentCMD.TextSize = 14
+SilentCMD.TextStrokeColor3 = Color3.new(1, 1, 1)
+
+Box.Name = "Ok"
+Box.Parent = Main
+Box.BackgroundColor3 = Color3.new(0.168627, 0.513726, 0.25098)
+Box.BorderColor3 = Color3.new(0.168627, 0.513726, 0.25098)
+Box.Position = UDim2.new(0.0209580846, 0, 0.159420297, 0)
+Box.Size = UDim2.new(0, 317, 0, 50)
+Box.ClearTextOnFocus = false
+Box.Font = Enum.Font.SourceSans
+Box.PlaceholderColor3 = Color3.new(0.294118, 1, 0.764706)
+Box.PlaceholderText = "print(hi)"
+Box.Text = ""
+Box.TextColor3 = Color3.new(0.0235294, 1, 0.513726)
+Box.TextScaled = true
+Box.TextSize = 30
+Box.TextWrapped = true
+
+X.Name = "X"
+X.Parent = Main
+X.BackgroundColor3 = Color3.new(0.168627, 0.513726, 0.25098)
+X.BorderColor3 = Color3.new(0.168627, 0.513726, 0.25098)
+X.BorderSizePixel = 0
+X.Position = UDim2.new(0.952095807, 0, 0, 0)
+X.Size = UDim2.new(0, 16, 0, 16)
+X.Font = Enum.Font.SourceSans
+X.Text = "X"
+X.TextColor3 = Color3.new(1, 1, 1)
+X.TextScaled = true
+X.TextSize = 14
+X.TextWrapped = true
+
+--SCRIPTS
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local plrname = game.Players.LocalPlayer.Name
+
+local function RemoveSpaces(String)
+	return String:gsub("%s+", "") or String
+end
+
+local function FindPlayer(String)
+	String = RemoveSpaces(String)
+	for _, _Player in pairs(Players:GetPlayers()) do
+		if _Player.Name:lower():match('^'.. String:lower()) then
+			return _Player
+		end
+	end
+	return nil
+end
+	
+Punish.MouseButton1Click:Connect(function()
+Test
+wait(1)
+end)
+
+X.MouseButton1Click:Connect(function()
+ScreenGui:Destroy()
+end)
